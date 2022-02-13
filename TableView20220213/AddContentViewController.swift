@@ -26,21 +26,23 @@ class AddContentViewController: UIViewController {
         print("myName is \(name), myPhone is \(phone)")
         
         if name.count <= 2 {
-            let alertVC = UIAlertController(title: "Please input more than 3 characters", message: nil, preferredStyle: .actionSheet)
-            let okButton = UIAlertAction(title: "I know.", style: .cancel)
-            alertVC.addAction(okButton)
-            self.present(alertVC, animated: true) {
-                print("Finish the alert")
-            }
+            showAlert(title: "請至少輸入3個字元~")
         }
         
         if phone.count != 10 {
-            let alertVC = UIAlertController(title: "Please input 10 characters", message: nil, preferredStyle: .actionSheet)
-            let okButton = UIAlertAction(title: "I know.", style: .cancel)
-            alertVC.addAction(okButton)
-            self.present(alertVC, animated: true) {
-                print("Finish the alert")
-            }
+            showAlert(title: "請至少輸入10個字元~")
+        }
+    }
+}
+
+// 對所有UIViewController均生效
+extension UIViewController {
+    func showAlert(title: String) {
+        let alertVC = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        let okButton = UIAlertAction(title: "確認OK.", style: .cancel)
+        alertVC.addAction(okButton)
+        self.present(alertVC, animated: true) {
+            print("Finish the alert")
         }
     }
 }
