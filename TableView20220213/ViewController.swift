@@ -63,5 +63,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        return 90
 //    }
 //
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("ViewController viewWillDisappear")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("content view will appear")
+    }
 }
 
