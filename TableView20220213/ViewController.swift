@@ -42,8 +42,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let redCell = UITableViewCell()
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "theTableViewCell")!
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "theTableViewCell")!
 //        cell.backgroundColor = UIColor.red
 //        cell.textLabel?.text = "\(indexPath)"
         
@@ -53,7 +53,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        // subView過大也看得見
 //        cell.clipsToBounds = false
 //        cell.addSubview(theView)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "theTableViewCell") as! myTableViewCell
+        cell.myName.text = "Grace"
+        cell.myTel.text = "0911111111"
         return cell
     }
     
