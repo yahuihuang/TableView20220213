@@ -50,6 +50,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let theView = UIView(frame: CGRect(x: 10, y: 10, width: 250, height: 30))
         theView.backgroundColor = UIColor.yellow
         
+        // subView過大也看得見
+        cell.clipsToBounds = false
         cell.addSubview(theView)
         
         return cell
