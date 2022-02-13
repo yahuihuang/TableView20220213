@@ -114,10 +114,59 @@
                     <view key="view" contentMode="scaleToFill" id="ifp-bp-YYz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" 請輸入姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rh8-xz-cEL">
+                                <rect key="frame" x="20" y="64" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0nn-tf-BPN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入電話" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-cl-3BC">
+                                <rect key="frame" x="20" y="124" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="O8i-HT-zlO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTc-Yi-sD1">
+                                <rect key="frame" x="30" y="184" width="354" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WBg-xg-yx0"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="新增">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addContentAction:" destination="wNq-XD-iRc" eventType="touchUpInside" id="F5Y-P0-sHZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="LuB-c4-S7b"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="gTc-Yi-sD1" firstAttribute="leading" secondItem="LuB-c4-S7b" secondAttribute="leading" constant="30" id="58M-f0-G2c"/>
+                            <constraint firstItem="Rh8-xz-cEL" firstAttribute="top" secondItem="LuB-c4-S7b" secondAttribute="top" constant="20" id="A46-5m-BMl"/>
+                            <constraint firstItem="WEo-cl-3BC" firstAttribute="leading" secondItem="LuB-c4-S7b" secondAttribute="leading" constant="20" id="Bqc-WI-jnd"/>
+                            <constraint firstItem="LuB-c4-S7b" firstAttribute="trailing" secondItem="gTc-Yi-sD1" secondAttribute="trailing" constant="30" id="Hmd-kP-dGN"/>
+                            <constraint firstItem="LuB-c4-S7b" firstAttribute="trailing" secondItem="Rh8-xz-cEL" secondAttribute="trailing" constant="20" id="JO3-Hi-ktL"/>
+                            <constraint firstItem="Rh8-xz-cEL" firstAttribute="leading" secondItem="LuB-c4-S7b" secondAttribute="leading" constant="20" id="UTU-xB-Hpr"/>
+                            <constraint firstItem="gTc-Yi-sD1" firstAttribute="top" secondItem="WEo-cl-3BC" secondAttribute="bottom" constant="20" id="aYM-4J-Qgz"/>
+                            <constraint firstItem="WEo-cl-3BC" firstAttribute="top" secondItem="Rh8-xz-cEL" secondAttribute="bottom" constant="20" id="kYj-Ez-BTC"/>
+                            <constraint firstItem="LuB-c4-S7b" firstAttribute="trailing" secondItem="WEo-cl-3BC" secondAttribute="trailing" constant="20" id="nEz-gN-hQo"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="請輸入資料" image="info" catalog="system" badgeValue="2" id="Mz4-hH-UZU"/>
+                    <connections>
+                        <outlet property="myName" destination="Rh8-xz-cEL" id="GDr-1b-cfO"/>
+                        <outlet property="myTel" destination="WEo-cl-3BC" id="dv4-5I-aUA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QY9-hO-cAH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,6 +179,12 @@
         <image name="teletype.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
