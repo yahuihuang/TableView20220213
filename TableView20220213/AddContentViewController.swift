@@ -16,6 +16,11 @@ class AddContentViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // 收鍵盤
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("AddContentViewController viewWillAppear")
