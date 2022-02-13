@@ -8,13 +8,14 @@
 import UIKit
 
 class AddContentViewController: UIViewController {
-
+    
     @IBOutlet weak var myName: UITextField!
     @IBOutlet weak var myTel: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("AddContentViewController viewWillAppear")
@@ -27,22 +28,29 @@ class AddContentViewController: UIViewController {
         
         if name.count <= 2 {
             showAlert(title: "請至少輸入3個字元~")
+            return
         }
         
         if phone.count != 10 {
             showAlert(title: "請至少輸入10個字元~")
+            return
         }
+        
+        //UserDefaults
+        let content = ["name": name, "phone": phone]
+        let userDefault = UserDefaults.standard
+        var contentList:[[String:String]] = (userDefault.value(forKey: "contentList") as? [[String:String]] ?? [])
+        contentList.append(content)
+        
+        userDefault.set(contentList, forKey: "contentList")
+        userDefault.synchronize()
+        
+        print(userDefault.value(forKey: "contentList") as! [[String:String]])
+        
+        self.myName.text = ""
+        self.myTel.text = ""
+        showAlert(title: "輸入成功!")
     }
 }
 
-// 對所有UIViewController均生效
-extension UIViewController {
-    func showAlert(title: String) {
-        let alertVC = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-        let okButton = UIAlertAction(title: "確認OK.", style: .cancel)
-        alertVC.addAction(okButton)
-        self.present(alertVC, animated: true) {
-            print("Finish the alert")
-        }
-    }
-}
+
