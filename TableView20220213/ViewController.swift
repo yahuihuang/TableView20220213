@@ -8,9 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-
     @IBOutlet weak var myTableView: UITableView!
+    
+    let userDefault = UserDefaults.standard
+    var contentList:[[String:String]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myTableView.dataSource = self
@@ -29,13 +31,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        myTableView.allowsMultipleSelection = false
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("ViewController viewWillDisappear")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("content view will appear")
+        
+        contentList = (userDefault.value(forKey: "contentList") as? [[String:String]] ?? [])
+        // must reload for second times
+        myTableView.reloadData()
+    }
+    
     //MARK: UITableViewDataSource, UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return contentList.count
 //        var numberOfRows = Int.random(in: 1...10)
 //        return numberOfRows
     }
@@ -54,8 +70,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        cell.clipsToBounds = false
 //        cell.addSubview(theView)
         let cell = tableView.dequeueReusableCell(withIdentifier: "theTableViewCell") as! myTableViewCell
-        cell.myName.text = "Grace"
-        cell.myTel.text = "0911111111"
+        cell.myName.text = contentList[indexPath.row]["name"]
+        cell.myTel.text = contentList[indexPath.row]["phone"]
         return cell
     }
     
@@ -63,14 +79,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        return 90
 //    }
 //
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("ViewController viewWillDisappear")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("content view will appear")
-    }
+
 }
 
