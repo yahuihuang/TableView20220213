@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 20
 //        var numberOfRows = Int.random(in: 1...10)
 //        return numberOfRows
     }
@@ -44,22 +44,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        let redCell = UITableViewCell()
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "theTableViewCell")!
-        cell.backgroundColor = UIColor.red
-        cell.textLabel?.text = "\(indexPath)"
+//        cell.backgroundColor = UIColor.red
+//        cell.textLabel?.text = "\(indexPath)"
         
-        let theView = UIView(frame: CGRect(x: 10, y: 10, width: 250, height: 30))
-        theView.backgroundColor = UIColor.yellow
-        
-        // subView過大也看得見
-        cell.clipsToBounds = false
-        cell.addSubview(theView)
+//        let theView = UIView(frame: CGRect(x: 10, y: 10, width: 250, height: 30))
+//        theView.backgroundColor = UIColor.yellow
+//
+//        // subView過大也看得見
+//        cell.clipsToBounds = false
+//        cell.addSubview(theView)
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
-    }
-    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 90
+//    }
+//
 }
 

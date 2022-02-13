@@ -21,12 +21,27 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="theTableViewCell" id="BKM-Sd-Nkc">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="theTableViewCell" rowHeight="87" id="BKM-Sd-Nkc" customClass="myTableViewCell" customModule="TableView20220213" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BKM-Sd-Nkc" id="PhZ-On-Ayt">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.on.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QDW-3n-TUg">
+                                                    <rect key="frame" x="40" y="28.5" width="60" height="41"/>
+                                                    <color key="backgroundColor" red="1" green="0.91940291090000004" blue="0.1069808545" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="rWI-b8-fbo"/>
+                                                        <constraint firstAttribute="width" constant="60" id="zRE-2f-ulJ"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QDW-3n-TUg" firstAttribute="top" secondItem="PhZ-On-Ayt" secondAttribute="topMargin" constant="20" id="3s4-rR-3pD"/>
+                                                <constraint firstItem="QDW-3n-TUg" firstAttribute="leading" secondItem="PhZ-On-Ayt" secondAttribute="leadingMargin" constant="20" id="dHV-nu-o0X"/>
+                                                <constraint firstAttribute="bottom" secondItem="QDW-3n-TUg" secondAttribute="bottom" constant="20" id="riQ-Vm-vTA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -47,10 +62,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="40"/>
+            <point key="canvasLocation" x="-13.043478260869566" y="39.508928571428569"/>
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.up.on.square.fill" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
