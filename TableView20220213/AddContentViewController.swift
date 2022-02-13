@@ -24,8 +24,18 @@ class AddContentViewController: UIViewController {
         let name = myName.text ?? ""
         let phone = myTel.text ?? ""
         print("myName is \(name), myPhone is \(phone)")
+        
         if name.count <= 2 {
-            let alertVC = UIAlertController(title: "Please input 3 characters", message: nil, preferredStyle: .actionSheet)
+            let alertVC = UIAlertController(title: "Please input more than 3 characters", message: nil, preferredStyle: .actionSheet)
+            let okButton = UIAlertAction(title: "I know.", style: .cancel)
+            alertVC.addAction(okButton)
+            self.present(alertVC, animated: true) {
+                print("Finish the alert")
+            }
+        }
+        
+        if phone.count != 10 {
+            let alertVC = UIAlertController(title: "Please input 10 characters", message: nil, preferredStyle: .actionSheet)
             let okButton = UIAlertAction(title: "I know.", style: .cancel)
             alertVC.addAction(okButton)
             self.present(alertVC, animated: true) {
